@@ -1,0 +1,58 @@
+{
+  "name": "rc-lib",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/rc-lib/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/packages/rc-lib",
+        "main": "packages/rc-lib/src/index.ts",
+        "tsConfig": "packages/rc-lib/tsconfig.lib.json",
+        "assets": [
+          "packages/rc-lib/*.md"
+        ],
+        "generatePackageJson": true,
+        "sourcemap": "linked",
+        "format": [
+          "esm",
+          "cjs"
+        ],
+        "esbuildOptions": {
+          "plugins": [
+            
+          ]
+        },
+        "external": [
+          "react/jsx-runtime",
+          "react",
+          "lodash",
+          "react-dom",
+          "react-router-dom",
+          "mobx-react-lite",
+          "classnames",
+          "mobx",
+          "antd",
+          "@ant-design/icons"
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "packages/rc-lib/**/*.ts",
+          "packages/rc-lib/package.json"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
