@@ -1,0 +1,69 @@
+{
+  "name": "my-rc-app",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/my-rc-app/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "development",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/packages/my-rc-app",
+        "index": "packages/my-rc-app/src/index.html",
+        "baseHref": "/",
+        "main": "packages/my-rc-app/src/main.tsx",
+        "tsConfig": "packages/my-rc-app/tsconfig.app.json",
+        "assets": [
+          "packages/my-rc-app/src/favicon.ico",
+          "packages/my-rc-app/src/assets"
+        ],
+        "styles": ["packages/my-rc-app/src/styles.less"],
+        "scripts": [],
+        "isolatedConfig": true,
+        "webpackConfig": "packages/my-rc-app/webpack.config.js"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "packages/my-rc-app/src/environments/environment.ts",
+              "with": "packages/my-rc-app/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/webpack:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "my-rc-app:build",
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "my-rc-app:build:development"
+        },
+        "production": {
+          "buildTarget": "my-rc-app:build:production",
+          "hmr": false
+        }
+      }
+    }
+  },
+  "tags": []
+}
