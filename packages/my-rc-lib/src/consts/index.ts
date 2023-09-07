@@ -1,0 +1,1 @@
+export const MY_RC_LIB_VERSION = 1;

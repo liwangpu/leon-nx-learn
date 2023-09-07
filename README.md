@@ -1,0 +1,1 @@
+nx generate @nx/react:library --buildable --publishable --importPath=my-rc-lib --name=my-rc-lib
