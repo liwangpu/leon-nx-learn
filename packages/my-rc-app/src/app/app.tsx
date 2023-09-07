@@ -4,6 +4,7 @@ import styles from './app.module.less';
 export function App() {
   return (
     <div className={styles['app']}>
+      app
     </div>
   );
 }
