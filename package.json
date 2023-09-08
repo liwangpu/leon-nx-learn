@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "start": "nx serve my-rc-app",
-    "build": "nx build my-rc-app",
+    "build": "nx build my-rc-lib",
     "build:my-rc-lib": "nx build my-rc-lib",
     "build:my-rc-app": "nx build my-rc-app"
   },

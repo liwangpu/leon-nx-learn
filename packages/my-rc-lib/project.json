@@ -31,7 +31,8 @@
           "esm"
         ],
         "additionalEntryPoints": [
-          "packages/my-rc-lib/src/store.ts"
+          "packages/my-rc-lib/src/store.ts",
+          "packages/my-rc-lib/manager/index.ts"
         ],
         "generateExportsField": true,
         "external": [
